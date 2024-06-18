@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "scene",
+  "title": "Scene",
+  "description": "A motion planning scene",
+  "type": "object",
+  "properties": {
+    "obstacles": {
+      "type": "array",
+      "description": "The obstacles of the scene - locations where the robots may not be",
+      "items": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "array",
+            "description": "The coordinates of the obstacle",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "radius": {
+            "type": "number",
+            "description": "The radius of the disk"
+          }
+        }
+      }
+    },
+    "robots": {
+      "type": "array",
+      "description": "The robots of the scene - which need to go from `start` to `end`",
+      "items": {
+        "type": "object",
+        "properties": {
+          "radius": {
+            "type": "number",
+            "description": "The radius of the robot"
+          },
+          "start": {
+            "type": "array",
+            "description": "The coordinates of the start location of the robot",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "end": {
+            "type": "array",
+            "description": "The coordinates of the end location of the robot",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          }
+        }
+      }
+    }
+  }
+}
